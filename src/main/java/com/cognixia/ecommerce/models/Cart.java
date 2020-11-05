@@ -4,13 +4,23 @@ import java.util.List;
 
 public class Cart {
 	
+	private User user;
 	private List<Product> products;
 	private float totalPrice;
 	
-	public Cart(List<Product> products) {
+	public Cart(User user, List<Product> products) {
 		super();
+		this.user = user;
 		this.products = products;
 		this.totalPrice = 0;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public List<Product> getProducts() {
@@ -48,7 +58,6 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [products=" + products + ", totalPrice=" + totalPrice + "]";
+		return "Cart [user=" + user + ", products=" + products + ", totalPrice=" + totalPrice + "]";
 	}
-
 }

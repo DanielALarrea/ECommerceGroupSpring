@@ -11,4 +11,16 @@
 		class="com.cognixia.ecommerce.services.HelloWorldService">
 		<property name="name" value="Program Creek Readers" />
 	</bean>
+	
+	<bean id="userService"
+		class="com.cognixia.ecommerce.services.UserService">
+	</bean>
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>
+   		<property name = "url" value = "jdbc:mysql://localhost:3306/ecommercespring"/>
+   		<property name = "username" value = "root"/>
+   		<property name = "password" value = "root"/>
+	</bean>
 </beans>

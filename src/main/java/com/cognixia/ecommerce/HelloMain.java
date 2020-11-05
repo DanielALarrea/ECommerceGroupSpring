@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cognixia.ecommerce.services.HelloWorldService;
+import com.cognixia.ecommerce.services.UserService;
 
 public class HelloMain {
 
@@ -18,6 +19,10 @@ public class HelloMain {
 		
 		service.setName("Spring");
 		service.sayHello();
+		
+		UserService userServe = (UserService) context.getBean("userService");
+		userServe.getAllUsers();
+		System.out.println(userServe.getAllUsers());
 	}
 
 }
