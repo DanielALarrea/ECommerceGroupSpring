@@ -14,6 +14,8 @@
 			<th>Description</th>
 			<th>Price</th>
 			<th>Image Path</th>
+			<th>Edit</th>
+			<th>Delete</th>
 		</tr>
 		<c:forEach var="product" items="${list}">
 			<tr>
@@ -22,9 +24,12 @@
 				<td>${product.productDescription}</td>
 				<td>$${product.productPrice}</td>
 				<td>${product.productImagePath}</td>
+				<td><a href="editproduct/${product.id}">Edit</a></td>
+				<td><a href="deleteproduct/${product.id}">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br />
+	<a href="addproduct">Add New Product</a>
 </body>
 </html>

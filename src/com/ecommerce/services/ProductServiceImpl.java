@@ -30,8 +30,8 @@ public class ProductServiceImpl implements ProductService {
 		productDao.editProduct(product);
 	}
 
-	public void deleteProduct(Product product) {
-		productDao.deleteProduct(product);
+	public void deleteProduct(int id) {
+		productDao.deleteProduct(id);
 	}
 
 }

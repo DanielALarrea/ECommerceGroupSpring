@@ -32,7 +32,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public Product getProductById (int id) {
-		String sql = "select * from products where id=?";
+		String sql = "select * from products where productid=?";
 		return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<Product>(Product.class));
 	}
 
@@ -44,12 +44,12 @@ public class ProductDaoImpl implements ProductDao {
 
 	public void editProduct(Product p) {
 		String sql = "update products set productname='" + p.getProductName() + "', productdescription='" + p.getProductDescription() 
-				   + "', productprice=" + p.getProductName() + ", productimagepath='" + p.getProductImagePath() + ", where id=" + p.getId();
+				   + "', productprice=" + p.getProductPrice() + ", productimagepath='" + p.getProductImagePath() + "' where productid=" + p.getId();
 		template.update(sql);
 	}
 
-	public void deleteProduct(Product p) {
-		String sql = "delete from products where id="+p.getId()+""; 
+	public void deleteProduct(int id) {
+		String sql = "delete from products where productid="+id+"";
 		template.update(sql);
 	}
 

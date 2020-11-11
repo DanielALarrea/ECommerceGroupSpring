@@ -14,6 +14,10 @@ public class Product {
 	private float productPrice;
 	private String productImagePath;
 	
+	public Product() {
+		
+	}
+	
 	public Product(String productName, String productDescription, float productPrice) {
 		super();
 		this.productName = productName;
