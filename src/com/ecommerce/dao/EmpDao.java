@@ -30,7 +30,7 @@ public class EmpDao {
 	
 	public int delete(int id){    
 	    String sql="delete from emp99 where id="+id+"";    
-	    return template.update(sql);    
+	    return template.update(sql); 
 	}
 	
 	public Emp getEmpById(int id) {

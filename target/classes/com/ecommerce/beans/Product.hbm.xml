@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ecommerce.beans">
+    <class name="Product" table="PRODUCTS">
+        <id name="productId" column="PRODUCT_ID">
+            <generator class="native"/>
+        </id>
+        <property name="productName" column="PRODUCTNAME" />
+        <property name="productDescription" column="PRODUCTDESCRIPTION" />
+        <property name="productPrice" column="PRODUCTPRICE" />
+        <property name="productImagePath" column="PRODUCTIMAGEPATH" />
+    </class> 
+</hibernate-mapping>

@@ -10,12 +10,12 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
- 
+
 	<mvc:annotation-driven />
 	<context:component-scan
 		base-package="com.ecommerce" />
 	<mvc:default-servlet-handler />
- 
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
@@ -23,12 +23,13 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
+
 	<bean id="ds"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/empdatabase"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/empdatabase"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
 	</bean>
@@ -39,7 +40,10 @@
 
 	<bean id="dao" class="com.ecommerce.dao.EmpDao">
 		<property name="template" ref="jt"></property>
-	</bean> 
- 
- 
+	</bean>
+	
+	<bean id="productDao" class="com.ecommerce.dao.ProductDaoImpl">
+		<property name="template" ref="jt"></property>
+	</bean>
+
 </beans>
