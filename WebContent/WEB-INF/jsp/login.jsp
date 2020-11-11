@@ -39,7 +39,7 @@
 		<form method="post"   style="padding: 20px;text-align:center;margin-left:0px">
 			
 			<h6 style="margin-left: -150px; color:black" ><u>User</u> :</h6> 
-			<input type="text" name="name" placeholder="Enter Username" style="margin-left: -10px" required/>
+			<input type="text" name="userName" placeholder="Enter Username" style="margin-left: -10px" required/>
 		
 			<h6 style="margin-left: -125px; color:black"><u>Password</u> :</h6> 
 			<input type="password" name="password" placeholder="Enter Password" style="margin-left: -10px"required/><br> 
