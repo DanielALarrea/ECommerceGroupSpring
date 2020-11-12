@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import com.ecommerce.beans.Address;
 import com.ecommerce.beans.Product;
+import com.ecommerce.beans.User;
 import com.ecommerce.services.ProductService;
 
 @Controller
@@ -19,11 +21,38 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService service;
-	
+	private String viewProducts = "products";
+	private String viewProductsAdmin = "manage-products";
 	private String viewProductPage = "test/viewproduct";
 	private String editProductPage = "test/editproduct";
 	private String addProductPage = "test/addproduct";
 	private String redirectToView = "redirect:/viewproduct";
+	
+	@GetMapping("/admin")
+	public String viewAdminPage(Model m){
+		//m.addAttribute(new User("admin","admin","admin@admin.com","admin","admin","admin", new Address()));
+		return "admin";
+	}
+	@GetMapping("/admin/products/add")
+	public String addProducts(Model m)
+	{
+		m.addAttribute("command", new Product());
+		return "addproduct";
+	}
+	
+	@GetMapping("/products")
+	public String viewProducts(Model m) {
+		List<Product> productList = service.getAllProducts();
+		m.addAttribute("list", productList);
+		return viewProducts;
+	}
+	
+	@GetMapping("/admin/products")
+	public String viewProductsAdmin(Model m) {
+		List<Product> productList = service.getAllProducts();
+		m.addAttribute("list", productList);
+		return viewProductsAdmin;
+	}
 	
 	@GetMapping("/viewproduct")
 	public String viewProductList(Model m) {

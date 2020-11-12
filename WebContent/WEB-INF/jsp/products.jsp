@@ -62,8 +62,8 @@
 	<div class="header" >
 	
 		<h4 style="text-align: left;color: black;padding-top:5px;padding-bottom: 5px;margin-left:1vw">Something Hub 
-			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Home</a>
-			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Products</a>
+			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="/ECommerceGroupSpring" >Home</a>
+			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="products" >Products</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >About Us</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Contact Us</a>
 			<a class="flex" style="color: black;" href="" >Admin</a>
@@ -115,11 +115,11 @@
 	 -->
 	 <c:forEach var="product" items="${list}">
 	 	<div class='card'>
-	 	<img src="${pageContext.request.contextPath}/resources/assets/thumbnail.PNG" alt='palceholder' style="width:100%"/>
-	 	<h1>${product.productName}</h1>
-	 	<p class='price'>$${product.productPrice}</p>
-	 	<p>${product.productDescription}</p>
-	 	<p><button onclick='addToCart("+items[i].id+")'>Add to Cart</button></p>
+	 	<img src="${pageContext.request.contextPath}/resources/assets/productpics/product_${product.id}.jpg" alt='palceholder' style="width:100%"/>
+	 	<h1>${product.name}</h1>
+	 	<p class='price'>$${product.price}</p>
+	 	<p>${product.description}</p>
+	 	<p><button onclick='addToCart("${product.id}")'>Add to Cart</button></p>
 	 	</div>
 	 	<br>
 		 
