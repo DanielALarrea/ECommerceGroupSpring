@@ -15,7 +15,7 @@ import javax.persistence.Id;
 public class Invoice {
 	@Id
 	private Integer invoiceId;
-	private String customerId;
+	private Integer customerId;
 	private Timestamp orderDate;
 	private Double subTotal;
 	private Double salesTax;
@@ -25,7 +25,7 @@ public class Invoice {
 	 * Default constructor.
 	 */
 	public Invoice() {
-		this(-1, "N/A", Timestamp.valueOf(LocalDateTime.now()), 0.0, 0.0, 0.0, 0.0);
+		this(-1, -1, Timestamp.valueOf(LocalDateTime.now()), 0.0, 0.0, 0.0, 0.0);
 	}
 	/**
 	 * Overloaded constructor.
@@ -37,7 +37,7 @@ public class Invoice {
 	 * @param tax the the tax on the invoice
 	 * @param total the total cost of the invoice
 	 */
-	public Invoice(Integer invoiceId, String customerId, Timestamp orderDate, Double subTotal, Double salesTax,
+	public Invoice(Integer invoiceId, Integer customerId, Timestamp orderDate, Double subTotal, Double salesTax,
 			Double tax, Double total) {
 		super();
 		this.invoiceId = invoiceId;
@@ -64,16 +64,16 @@ public class Invoice {
 	}
 	/**
 	 * Retrieves the customer id of the customer that made this invoice.
-	 * @return String - the customer id of the customer that made this invoice
+	 * @return Integer - the customer id of the customer that made this invoice
 	 */
-	public String getCustomerId() {
+	public Integer getCustomerId() {
 		return customerId;
 	}
 	/**
 	 * Updates the customer id of the customer that made this invoice.
 	 * @param customerId the customer id of the customer that made this invoice
 	 */
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
 	}
 	/**

@@ -13,7 +13,7 @@ public class InvoiceProduct {
 	@Id
 	private Integer invoiceProductId;
 	private Integer invoiceId;
-	private String productId;
+	private Integer productId;
 	private Integer quantity;
 	private Boolean canReturn;
 	private Boolean requestedReturn;
@@ -22,7 +22,7 @@ public class InvoiceProduct {
 	 * Default constructor.
 	 */
 	public InvoiceProduct() {
-		this(0, 0, "N/A", 0, false, false, 0);
+		this(0, 0, 0, 0, false, false, 0);
 	}
 	/**
 	 * Overloaded constructor.
@@ -34,7 +34,7 @@ public class InvoiceProduct {
 	 * @param requestedReturn whether the customer has requested a return
 	 * @param amountRequestedReturn the amount to return when a return is requested 
 	 */
-	public InvoiceProduct(Integer invoiceProductId, Integer invoiceId, String productId, Integer quantity,
+	public InvoiceProduct(Integer invoiceProductId, Integer invoiceId, Integer productId, Integer quantity,
 			Boolean canReturn, Boolean requestedReturn, Integer amountRequestedReturn) {
 		super();
 		this.invoiceProductId = invoiceProductId;
@@ -75,16 +75,16 @@ public class InvoiceProduct {
 	}
 	/**
 	 * Retrieves the product id connected to the invoice involved.
-	 * @return String - the product id connected to the invoice involved
+	 * @return Integer - the product id connected to the invoice involved
 	 */
-	public String getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
 	/**
 	 * Updates the product id connected to the invoice involved.
 	 * @param productId the product id connected to the invoice involved
 	 */
-	public void setProductId(String productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 	/**

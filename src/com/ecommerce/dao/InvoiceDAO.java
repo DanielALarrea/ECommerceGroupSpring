@@ -27,13 +27,13 @@ public interface InvoiceDAO {
 	 * @param customerId the customer id to search by
 	 * @return List - the list of invoices based on the customer's id
 	 */
-	public List<Invoice> getByCustomerId(String customerId);
+	public List<Invoice> getByCustomerId(Integer customerId);
 	/**
 	 * Adds an invoice.
 	 * @param invoice the invoice to add
-	 * @return Invoice - the added invoice
+	 * @return boolean - whether the invoice was added
 	 */
-	public Invoice add(Invoice invoice);
+	public boolean add(Invoice invoice);
 	/**
 	 * Updates the sub total of the invoice.
 	 * @param invoice the invoice to update
