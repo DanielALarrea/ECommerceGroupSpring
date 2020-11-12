@@ -23,11 +23,11 @@
 	<div class="header" >
 	
 		<h4 style="text-align: left;color: black;padding-top:5px;padding-bottom: 5px;margin-left:1vw">Something Hub 
-			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Home</a>
-			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="viewproduct" >Products</a>
+			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="/ECommerceGroupSpring" >Home</a>
+			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="products" >Products</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >About Us</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Contact Us</a>
-			<a class="flex" style="color: black;" href="" >Admin</a>
+			<a class="flex" style="color: black;" href="admin" >Admin</a>
 			<a id="login"></a>
 			<script>
 				if(userName === "")
@@ -52,7 +52,7 @@
 
 	
 	<h1 style="margin-top:2vw;text-align: center;">Home</h1>
-	<img class="home-image" alt="" src="thumbnail.PNG">
+	<img class="home-image" alt="" src="${pageContext.request.contextPath}/resources/assets/thumbnail.PNG">
 <!-- Insert some sort of picture slides -->
 	
 </body>
