@@ -4,23 +4,28 @@ import javax.persistence.*;
 
 @Entity
 public class User {
-	
+
+	public enum ROLE {
+		CUSTOMER, ADMIN
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private float userId;
-	
+
 	private String firstName;
 	private String lastName;
 	private String userEmail;
 	private String username;
 	private String userPass;
-	private String userRole;
-	
+	private ROLE userRole;
+	private String phone;
+
 	@OneToOne
 	private Address billingAddress;
 
-	public User(String firstName, String lastName, String userEmail, String username, String userPass, String userRole,
-			Address billingAddress) {
+	public User(String firstName, String lastName, String userEmail, String username, String userPass,
+			ROLE userRole, Address billingAddress, String phone) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -29,6 +34,7 @@ public class User {
 		this.userPass = userPass;
 		this.userRole = userRole;
 		this.billingAddress = billingAddress;
+		this.phone = phone;
 	}
 
 	public float getId() {
@@ -79,11 +85,11 @@ public class User {
 		this.userPass = userPass;
 	}
 
-	public String getUserRole() {
+	public ROLE getUserRole() {
 		return userRole;
 	}
 
-	public void setUserRole(String userRole) {
+	public void setUserRole(ROLE userRole) {
 		this.userRole = userRole;
 	}
 
@@ -93,6 +99,14 @@ public class User {
 
 	public void setBillingAddress(Address billingAddress) {
 		this.billingAddress = billingAddress;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 }

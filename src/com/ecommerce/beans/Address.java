@@ -4,22 +4,24 @@ import javax.persistence.*;
 
 @Entity
 public class Address {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private float addressId;
-	
+
 	private String streetName;
 	private int apartmentNumber;
 	private String cityName;
 	private String stateName;
-	
-	public Address(String streetName, int apartmentNumber, String cityName, String stateName) {
+	private String zipCode;
+
+	public Address(String streetName, int apartmentNumber, String cityName, String stateName, String zipCode) {
 		super();
 		this.streetName = streetName;
 		this.apartmentNumber = apartmentNumber;
 		this.cityName = cityName;
 		this.stateName = stateName;
+		this.zipCode = zipCode;
 	}
 
 	public float getId() {
@@ -60,6 +62,14 @@ public class Address {
 
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
+	}
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 
 }
