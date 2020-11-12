@@ -18,6 +18,7 @@
 			<th>In Stock</th>
 			<th>Edit</th>
 			<th>Delete</th>
+			<th>Top Image</th>
 		</tr>
 		<c:forEach var="product" items="${list}">
 			<tr>
@@ -30,10 +31,18 @@
 				<td>${product.inStock}</td>
 				<td><a href="editproduct/${product.id}">Edit</a></td>
 				<td><a href="deleteproduct/${product.id}">Delete</a></td>
+				<td><img src="" /></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br />
 	<a href="addproduct">Add New Product</a>
+	
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ page session="false"%>
+	<form method="POST" action="uploadFile" enctype="multipart/form-data">
+		File to upload: <input type="file" name="file"><br />
+		<input type="submit"value="Upload">
+	</form>
 </body>
 </html>

@@ -45,6 +45,11 @@
 	<bean id="productDao" class="com.ecommerce.dao.ProductDaoImpl">
 		<property name="template" ref="jt"></property>
 	</bean>
+	
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
 
 	 <mvc:resources mapping="/resources/**" location="/resources/theme1/"  
     cache-period="31556926"/>

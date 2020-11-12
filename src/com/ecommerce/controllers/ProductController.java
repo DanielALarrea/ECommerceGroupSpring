@@ -20,10 +20,14 @@ public class ProductController {
 	@Autowired
 	private ProductService service;
 	
-	private String viewProductPage = "test/viewproduct";
-	private String editProductPage = "test/editproduct";
-	private String addProductPage = "test/addproduct";
-	private String redirectToView = "redirect:/viewproduct";
+	private static String viewProductPage = "test/viewproduct";
+	private static String editProductPage = "test/editproduct";
+	private static String addProductPage = "test/addproduct";
+	private static String redirectToView = "redirect:/viewproduct";
+	
+	private static final String LOCAL_PROJECT = "D:/GitHub Repos/ECommerceGroupSpring";
+	
+	private static final String UPLOAD_DIRECTORY = LOCAL_PROJECT + "/WebContent/resources/theme1/assets/productpics";
 	
 	@GetMapping("/viewproduct")
 	public String viewProductList(Model m) {
