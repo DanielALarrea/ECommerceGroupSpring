@@ -10,7 +10,7 @@ public interface UserDao {
 	public User getUser(int userId);
 	public User getUser(String email);
 	public boolean userExists(int id);
-	public boolean addUser(User user);
+	public User addUser(User user);
 	public boolean editUser(User user);
 	public boolean deleteUser(User user);
 }
