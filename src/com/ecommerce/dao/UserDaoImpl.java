@@ -56,17 +56,18 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean addUser(User u) {
+	public User addUser(User u) {
 		String query = "insert into user(username, password, first_name, last_name, email, phone, address_id, role) values("
 				+ u.getUsername() + "," + u.getUserPass() + "," + u.getFirstName() + "," + u.getLastName() + "," + u.getUserEmail() + ","
 				+ addressDB.createAddress(u.getBillingAddress()).getId() + "," + u.getUserRole().toString() + ")";
-		return template.update(query) != 0;
+		template.update(query);
+		return getUser(u.getUserEmail());
 	}
 
 	@Override
 	public boolean editUser(User u) {
 		String query = "update user set username='"+u.getUsername()+"', password='"+u.getUserPass()+"', first_name='"+u.getFirstName()
-			+"', last_name='"+u.getLastName()+"', email='"+u.getUserEmail()+"', address_id="+addressDB.createAddress(u.getBillingAddress()).getId()
+			+"', last_name='"+u.getLastName()+"', email='"+u.getUserEmail()+"', address_id="+addressDB.editAddress(u.getBillingAddress()).getId()
 			+", role='"+u.getUserRole().toString()
 			+" where user_id='" + u.getId();
 		return template.update(query) != 0;

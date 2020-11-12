@@ -32,11 +32,12 @@ public class AddressDaoImpl implements AddressDao {
 	}
 
 	@Override
-	public boolean editAddress(Address a) {
+	public Address editAddress(Address a) {
 		String query = "update address set street='"+a.getStreetName()+" "+a.getApartmentNumber()
 			+"', city='"+a.getCityName()+"', state='"+a.getStateName()+"', zip_code='"+a.getZipCode()
 			+"' where address_id=" + a.getId();
-		return false;
+		template.update(query);
+		return getAddress((int) a.getId());
 	}
 
 	@Override
