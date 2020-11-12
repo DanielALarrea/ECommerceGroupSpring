@@ -56,11 +56,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean addUser(User u) {
+	public User addUser(User u) {
 		String query = "insert into user(username, password, first_name, last_name, email, phone, address_id, role) values("
 				+ u.getUsername() + "," + u.getUserPass() + "," + u.getFirstName() + "," + u.getLastName() + "," + u.getUserEmail() + ","
 				+ addressDB.createAddress(u.getBillingAddress()).getId() + "," + u.getUserRole().toString() + ")";
-		return template.update(query) != 0;
+		template.update(query);
+		return getUser(u.getUserEmail());
 	}
 
 	@Override
