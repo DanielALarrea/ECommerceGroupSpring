@@ -66,7 +66,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public boolean editUser(User u) {
 		String query = "update user set username='"+u.getUsername()+"', password='"+u.getUserPass()+"', first_name='"+u.getFirstName()
-			+"', last_name='"+u.getLastName()+"', email='"+u.getUserEmail()+"', address_id="+addressDB.createAddress(u.getBillingAddress()).getId()
+			+"', last_name='"+u.getLastName()+"', email='"+u.getUserEmail()+"', address_id="+addressDB.editAddress(u.getBillingAddress()).getId()
 			+", role='"+u.getUserRole().toString()
 			+" where user_id='" + u.getId();
 		return template.update(query) != 0;
