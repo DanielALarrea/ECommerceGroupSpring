@@ -5,6 +5,10 @@
 <body>
 	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<% 
+		String localDir = "D:/GitHub Repos/ECommerceGroupSpring";
+		String imageDir = localDir + "/WebContent/resources/theme1/assets/productpics/";
+	%>
 
 	<h1>Product List</h1>
 	<table border="2" width="70%" cellpadding="2">
@@ -31,18 +35,11 @@
 				<td>${product.inStock}</td>
 				<td><a href="editproduct/${product.id}">Edit</a></td>
 				<td><a href="deleteproduct/${product.id}">Delete</a></td>
-				<td><img src="" /></td>
+				<td><img src="${product.imagePath}" style="max-width: 400px" /></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br />
 	<a href="addproduct">Add New Product</a>
-	
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<%@ page session="false"%>
-	<form method="POST" action="uploadFile" enctype="multipart/form-data">
-		File to upload: <input type="file" name="file"><br />
-		<input type="submit"value="Upload">
-	</form>
 </body>
 </html>

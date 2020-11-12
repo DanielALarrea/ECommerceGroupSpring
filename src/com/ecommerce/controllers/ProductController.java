@@ -1,5 +1,9 @@
 package com.ecommerce.controllers;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.file.Files;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +78,21 @@ public class ProductController {
 	
 	@PostMapping("/addproduct")
 	public String addProduct(@ModelAttribute("product") Product product) {
+		String path = UPLOAD_DIRECTORY;
+		String fileName = product.getName() + ".png";
+		
+		String imagePath = path + "/" + fileName;
+		
+		product.setImagePath(imagePath);
+		
 		service.addProduct(product);
+		
+		System.out.println(path + " " + fileName);
+		try	{
+			product.getImage().transferTo(new File(imagePath));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		return redirectToView;
 	}
 	
@@ -88,7 +106,21 @@ public class ProductController {
 	
 	@PostMapping("/editproduct")
 	public String editProduct(@ModelAttribute("product") Product product) {
+		String path = UPLOAD_DIRECTORY;
+		String fileName = product.getName() + ".png";
+		
+		String imagePath = path + "/" + fileName;
+		
+		try	{
+			product.getImage().transferTo(new File(imagePath));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		product.setImagePath(imagePath);
+		
 		service.editProduct(product);
+		
 		return redirectToView;
 	}
 	

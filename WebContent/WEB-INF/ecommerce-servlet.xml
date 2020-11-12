@@ -46,6 +46,14 @@
 		<property name="template" ref="jt"></property>
 	</bean>
 	
+	<bean id="userDao" class="com.ecommerce.dao.UserDaoImpl">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
+	<bean id="AddressDao" class="com.ecommerce.dao.AddressDaoImpl">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10000000" />

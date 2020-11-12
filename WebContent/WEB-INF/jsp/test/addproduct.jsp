@@ -7,7 +7,7 @@
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 	<h1>Add New Product</h1>
-	<form:form method="post" action="addproduct">
+	<form:form method="post" action="addproduct" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>Name :</td>
@@ -22,12 +22,12 @@
 				<td><form:input path="price" /></td>
 			</tr>
 			<tr>
-				<td>Image Path :</td>
-				<td><form:input path="imagePath" /></td>
-			</tr>
-			<tr>
 				<td>Stock :</td>
 				<td><form:input path="stock" /></td>
+			</tr>
+			<tr>
+				<td>Image</td>
+				<td><input type="file" name="image"><br /></td>
 			</tr>
 			<tr>
 				<td></td>
