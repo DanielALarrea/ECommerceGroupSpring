@@ -21,35 +21,35 @@ public class ProductDaoImpl implements ProductDao {
 	}
 	
 	public List<Product> getAllProducts() {
-		return template.query("select * from products", new RowMapper<Product>() {
+		return template.query("select * from product", new RowMapper<Product>() {
 			public Product mapRow(ResultSet rs, int row) throws SQLException {
-				Product p = new Product(rs.getString("productname"), rs.getString("productdescription"), 
-										rs.getFloat("productprice"), rs.getString("productimagepath"));
-				p.setId(rs.getInt("productid"));
+				Product p = new Product(rs.getInt("product_id"), rs.getString("name"), rs.getString("top_image"), rs.getString("description"),
+										rs.getDouble("price"), rs.getInt("stock"), rs.getBoolean("in_stock"));
 	            return p;
 			}
 		});
 	}
 
 	public Product getProductById (int id) {
-		String sql = "select * from products where productid=?";
+		String sql = "select * from product where product_id=?";
 		return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<Product>(Product.class));
 	}
 
 	public void addProduct(Product p) {
-		String sql = "insert into products(productname, productdescription, productprice, productimagepath) "
-				   + "values('" + p.getProductName() + "', '" + p.getProductDescription() + "', '" + p.getProductPrice() + "', '" +p.getProductImagePath() + "')";
+		String sql = "insert into product(name, top_image, description, price, stock) "
+				   + "values('" + p.getName() + "', '" + p.getImagePath() + "', '" + p.getDescription() 
+				   + "', " + p.getPrice() + ", " + p.getStock() + ")";
 		template.update(sql);
 	}
 
 	public void editProduct(Product p) {
-		String sql = "update products set productname='" + p.getProductName() + "', productdescription='" + p.getProductDescription() 
-				   + "', productprice=" + p.getProductPrice() + ", productimagepath='" + p.getProductImagePath() + "' where productid=" + p.getId();
+		String sql = "update product set name='" + p.getName() + "', top_image='" + p.getImagePath() + "', description='" + p.getDescription()
+			+ "', price=" + p.getPrice() + ", stock=" + p.getStock() + " where product_id=" + p.getId();
 		template.update(sql);
 	}
 
 	public void deleteProduct(int id) {
-		String sql = "delete from products where productid="+id+"";
+		String sql = "delete from product where product_id="+id+"";
 		template.update(sql);
 	}
 
