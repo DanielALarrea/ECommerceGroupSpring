@@ -20,23 +20,28 @@ public class ProductController {
 	@Autowired
 	private ProductService service;
 	
+	private String viewProductPage = "test/viewproduct";
+	private String editProductPage = "test/editproduct";
+	private String addProductPage = "test/addproduct";
+	private String redirectToView = "redirect:/viewproduct";
+	
 	@GetMapping("/viewproduct")
 	public String viewProductList(Model m) {
 		List<Product> productList = service.getAllProducts();
 		m.addAttribute("list", productList);
-		return "viewproduct";
+		return viewProductPage;
 	}
 	
 	@GetMapping("/addproduct")
 	public String addProductForm(Model m) {
 		m.addAttribute("command", new Product());
-		return "addproduct";
+		return addProductPage;
 	}
 	
 	@PostMapping("/addproduct")
 	public String addProduct(@ModelAttribute("product") Product product) {
 		service.addProduct(product);
-		return "redirect:/viewproduct";
+		return redirectToView;
 	}
 	
 	@GetMapping("/editproduct/{id}")
@@ -44,19 +49,19 @@ public class ProductController {
 		Product product = service.getProductById(id);
 		product.setId(id);
 		m.addAttribute("command", product);
-		return "editproduct";
+		return editProductPage;
 	}
 	
 	@PostMapping("/editproduct")
 	public String editProduct(@ModelAttribute("product") Product product) {
 		service.editProduct(product);
-		return "redirect:/viewproduct";
+		return redirectToView;
 	}
 	
 	@GetMapping("/deleteproduct/{id}")    
     public String deleteProduct(@PathVariable int id){
 		service.deleteProduct(id);
-        return "redirect:/viewproduct";    
+        return redirectToView;    
     }
 
 }

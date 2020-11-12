@@ -6,72 +6,83 @@ import javax.persistence.*;
 public class Product {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int productId;
-	
-	private String productName;
-	private String productDescription;
-	private float productPrice;
-	private String productImagePath;
+	private int id;
+	private String name;
+	private String imagePath;
+	private String description;
+	private double price;
+	private int stock;
+	private boolean inStock;
 	
 	public Product() {
 		
 	}
 	
-	public Product(String productName, String productDescription, float productPrice) {
+	public Product(int id, String name, String imagePath, String description, double price, int stock,
+			boolean inStock) {
 		super();
-		this.productName = productName;
-		this.productDescription = productDescription;
-		this.productPrice = productPrice;
-		this.productImagePath = "";
-	}
-
-	public Product(String productName, String productDescription, float productPrice, String productImagePath) {
-		super();
-		this.productName = productName;
-		this.productDescription = productDescription;
-		this.productPrice = productPrice;
-		this.productImagePath = productImagePath;
+		this.id = id;
+		this.name = name;
+		this.imagePath = imagePath;
+		this.description = description;
+		this.price = price;
+		this.stock = stock;
+		this.inStock = inStock;
 	}
 
 	public int getId() {
-		return productId;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.productId = id;
+		this.id = id;
 	}
 
-	public String getProductName() {
-		return productName;
+	public String getName() {
+		return name;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getProductDescription() {
-		return productDescription;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
-	public float getProductPrice() {
-		return productPrice;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setProductPrice(float productPrice) {
-		this.productPrice = productPrice;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getProductImagePath() {
-		return productImagePath;
+	public double getPrice() {
+		return price;
 	}
 
-	public void setProductImagePath(String productImagePath) {
-		this.productImagePath = productImagePath;
+	public void setPrice(double price) {
+		this.price = price;
 	}
-	
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public boolean isInStock() {
+		return inStock;
+	}
+
+	public void setInStock(boolean inStock) {
+		this.inStock = inStock;
+	}
 }
