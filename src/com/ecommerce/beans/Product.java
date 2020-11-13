@@ -2,6 +2,8 @@ package com.ecommerce.beans;
 
 import javax.persistence.*;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity
 public class Product {
 	
@@ -13,6 +15,8 @@ public class Product {
 	private double price;
 	private int stock;
 	private boolean inStock;
+	
+	private MultipartFile image;
 	
 	public Product() {
 		
@@ -84,5 +88,13 @@ public class Product {
 
 	public void setInStock(boolean inStock) {
 		this.inStock = inStock;
+	}
+
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
 	}
 }

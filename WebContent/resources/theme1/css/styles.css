@@ -1,8 +1,14 @@
-
-td {
+table{
+	margin:auto;
+}
+table > tr {
+	margin-top:20px; 
+		margin-bottom:20px; 
+}
+/* td {
 	border-right: 5px solid #000;
 	border-color: silver;
-}
+} */
 
 .box {
   	transition: box-shadow .3s;
@@ -52,9 +58,11 @@ div.header{
 .card{
 	box-shadow:0 0 11px black;
 	max-width: 300px;
+	min-width:200px;
 	margin-left:3vw;
 	text-align:center;
 	margin-bottom: 20px;
+	background-color:#f0ffff;
 	
 }
 .cards{
@@ -68,6 +76,21 @@ div.header{
 	color:grey;
 	font-size: 22px;
 
+}
+.card button.edit{
+	background-color:yellow;
+	width: 40%;
+	padding-right:12px; 
+	padding-left:12px;
+	margin-right:5px;
+}
+.card button.delete{
+	background-color:red;
+	width: 40%;
+	padding-right:12px; 
+	padding-left:12px;
+	margin-left:5px;
+	
 }
 
 .card button {

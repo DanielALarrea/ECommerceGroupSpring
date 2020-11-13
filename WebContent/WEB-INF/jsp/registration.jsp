@@ -20,7 +20,7 @@
 	<div class="header" >
 	
 		<h4 style="text-align: left;color: black;padding-top:5px;padding-bottom: 5px;margin-left:1vw">Something Hub 
-			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Home</a>
+			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="/ECommerceGroupSpring" >Home</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Products</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >About Us</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Contact Us</a>
@@ -33,7 +33,7 @@
 <h1 class="page" style="margin-top:2vw;text-align: center;">Register Customer</h1>
 <h3 style="text-align: center;">Please fill in your information below.</h3>
 	<div class="register">
-		<form:form method="post" modelAttribute="cust"
+		<form:form method="post" modelAttribute="user"
 			style="padding: 20px; text-align:center; margin-left:0">
 			<h5 class="info">Basic Info:</h5>
 			
