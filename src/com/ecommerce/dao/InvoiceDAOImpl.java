@@ -14,7 +14,7 @@ import com.ecommerce.beans.Invoice;
 /**
  * The controller for invoice.
  * @author Lori White
- * @version v1 (10/04/2020)
+ * @version v2 (11/13/2020)
  */
 public class InvoiceDAOImpl implements InvoiceDAO {
 	@Autowired

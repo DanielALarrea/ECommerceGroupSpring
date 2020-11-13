@@ -25,9 +25,9 @@ public interface InvoiceProductDAO {
 	/**
 	 * Adds an invoice linked to a product.
 	 * @param invoiceProduct the invoice linked to a product
-	 * @return InvoiceProduct - the added invoice linked to a product
+	 * @return boolean - whether the added invoice linked to a product was added
 	 */
-	public InvoiceProduct add(InvoiceProduct invoiceProduct);
+	public boolean add(InvoiceProduct invoiceProduct);
 	/**
 	 * Updates an invoice-product.
 	 * @param invoiceProduct the invoice-product to update
