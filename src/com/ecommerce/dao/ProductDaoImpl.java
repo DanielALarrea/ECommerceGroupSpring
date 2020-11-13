@@ -14,7 +14,7 @@ import com.ecommerce.beans.Product;
 public class ProductDaoImpl implements ProductDao {
 	
 	@Autowired
-	JdbcTemplate template;
+	private JdbcTemplate template;
 	
 	public void setTemplate(JdbcTemplate template) {
 		this.template = template;

@@ -23,6 +23,10 @@ public class User {
 
 	@OneToOne
 	private Address billingAddress;
+	
+	public User() {
+		
+	}
 
 	public User(String firstName, String lastName, String userEmail, String username, String userPass,
 			ROLE userRole, Address billingAddress, String phone) {

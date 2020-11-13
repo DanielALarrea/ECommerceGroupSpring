@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Employee Form</title>
+<title>Product Form</title>
 </head>
 <body>
 	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
