@@ -12,5 +12,5 @@ public interface UserDao {
 	public boolean userExists(int id);
 	public User addUser(User user);
 	public boolean editUser(User user);
-	public boolean deleteUser(User user);
+	public boolean deleteUser(int id);
 }

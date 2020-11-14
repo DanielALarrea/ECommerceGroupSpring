@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.ecommerce.beans.Address;
-import com.ecommerce.beans.Product;
 
 public class AddressDaoImpl implements AddressDao {
 
@@ -21,6 +20,12 @@ public class AddressDaoImpl implements AddressDao {
 		String query = "select * from address where address_id=?";
 		return template.queryForObject(query, new Object[] { id }, new BeanPropertyRowMapper<Address>(Address.class));
 	}
+	
+	@Override
+	public Address getMostRecentAddress() {
+		String query = "select * from address where address_id=(select MAX(address_id) from address)";
+		return template.queryForObject(query, new BeanPropertyRowMapper<Address>(Address.class));
+	}
 
 	@Override
 	public Address createAddress(Address a) {
@@ -29,7 +34,7 @@ public class AddressDaoImpl implements AddressDao {
 				+ a.getCity() + "', '" + a.getState() + "', '"
 				+ a.getZipCode() + "')";
 		template.update(query);
-		return getAddress((int) a.getId());
+		return getMostRecentAddress();
 	}
 
 	@Override

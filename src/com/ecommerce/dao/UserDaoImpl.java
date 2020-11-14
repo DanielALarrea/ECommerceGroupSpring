@@ -44,7 +44,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User getUser(int userId) {
-		String query = "select * from user where customer_id=?";
+		String query = "select * from customer where customer_id=?";
 		return template.queryForObject(query, new Object[] {userId}, new BeanPropertyRowMapper<User>(User.class));
 	}
 
@@ -61,26 +61,30 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User addUser(User u) {
-		String query = "insert into customer(username, password, first_name, last_name, email, phone, address_id, role) values('"
-				+ u.getUsername() + "', '" + u.getUserPass() + "', '" + u.getFirstName() + "', '" + u.getLastName() + "', '" + u.getUserEmail() + "', "
-				+ addressDB.createAddress(u.getBillingAddress()).getId() + ", '" + u.getUserRole().toString() + "')";
+		int addressId = (int) addressDB.createAddress(u.getBillingAddress()).getId();
+		
+		String query = "insert into customer(username, password, first_name, last_name, email, phone_number, address_id, role) values('"
+				+ u.getUsername() + "', '" + u.getUserPass() + "', '" + u.getFirstName() + "', '" + u.getLastName() + "', '" + u.getUserEmail() + "', '"
+				+ u.getPhone() + "', " + addressId + ", 'customer')";
 		template.update(query);
 		return getUser(u.getUserEmail());
 	}
 
 	@Override
 	public boolean editUser(User u) {
-		String query = "update customer set username='"+u.getUsername()+"', password='"+u.getUserPass()+"', first_name='"+u.getFirstName()
-			+"', last_name='"+u.getLastName()+"', email='"+u.getUserEmail()+"', address_id="+addressDB.editAddress(u.getBillingAddress()).getId()
-			+", role='"+u.getUserRole().toString()
-			+" where user_id='" + u.getId();
+		int addressId = (int) addressDB.editAddress(u.getBillingAddress()).getId();
+		
+		String query = "update customer set username='" + u.getUsername() + "', password='" + u.getUserPass() + "', first_name='" + u.getFirstName()
+			+ "', last_name='" + u.getLastName()+"', email='" + u.getUserEmail() + "', phone_number='" + u.getPhone()
+			+ "', address_id=" + addressId + ", role='" + u.getUserRole().toString()
+			+ " where user_id='" + u.getId();
 		return template.update(query) != 0;
 	}
 
 	@Override
-	public boolean deleteUser(User user) {
-		String query = "delete from customer where customer_id=" + user.getId();
-		addressDB.deleteAddress((int) user.getBillingAddress().getId());
+	public boolean deleteUser(int id) {
+		String query = "delete from customer where customer_id=" + id;
+//		addressDB.deleteAddress((int) user.getBillingAddress().getId());
 		return template.update(query) != 0;
 	}
 

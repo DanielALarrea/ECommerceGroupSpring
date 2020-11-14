@@ -45,8 +45,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean deleteUser(User user) {
-		return userDB.deleteUser(user);
+	public boolean deleteUser(int id) {
+		return userDB.deleteUser(id);
 	}
 
 	@Override
