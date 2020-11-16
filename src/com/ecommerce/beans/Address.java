@@ -9,18 +9,32 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private float addressId;
 
-	private String streetName;
+	private String street;
 	private int apartmentNumber;
-	private String cityName;
-	private String stateName;
+	private String city;
+	private String state;
 	private String zipCode;
+	
+	public Address() {
+		
+	}
 
-	public Address(String streetName, int apartmentNumber, String cityName, String stateName, String zipCode) {
+	public Address(String street, String city, String state, String zipCode, int apartmentNumber) {
 		super();
-		this.streetName = streetName;
+		this.street = street;
 		this.apartmentNumber = apartmentNumber;
-		this.cityName = cityName;
-		this.stateName = stateName;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+	}
+
+	public Address(float addressId, String street, int apartmentNumber, String city, String state, String zipCode) {
+		super();
+		this.addressId = addressId;
+		this.street = street;
+		this.apartmentNumber = apartmentNumber;
+		this.city = city;
+		this.state = state;
 		this.zipCode = zipCode;
 	}
 
@@ -32,12 +46,12 @@ public class Address {
 		this.addressId = id;
 	}
 
-	public String getStreetName() {
-		return streetName;
+	public String getStreet() {
+		return street;
 	}
 
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
 	public int getApartmentNumber() {
@@ -48,20 +62,20 @@ public class Address {
 		this.apartmentNumber = apartmentNumber;
 	}
 
-	public String getCityName() {
-		return cityName;
+	public String getCity() {
+		return city;
 	}
 
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public String getStateName() {
-		return stateName;
+	public String getState() {
+		return state;
 	}
 
-	public void setStateName(String stateName) {
-		this.stateName = stateName;
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	public String getZipCode() {

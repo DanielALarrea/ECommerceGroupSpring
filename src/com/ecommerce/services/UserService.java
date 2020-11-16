@@ -12,7 +12,7 @@ public interface UserService {
 	public User getUser(String email);
 	public User addUser(User user);
 	public boolean updateUser(User user);
-	public boolean deleteUser(User user);
+	public boolean deleteUser(int id);
 	public boolean userExists(int id);
 	
 	public Address getAddress(int id);
