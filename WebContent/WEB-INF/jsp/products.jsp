@@ -115,7 +115,7 @@
 	 -->
 	 <c:forEach var="product" items="${list}">
 	 	<div class='card'>
-	 	<img src="${pageContext.request.contextPath}/resources/assets/productpics/product_${product.id}.jpg" alt='palceholder' style="width:100%"/>
+	 	<img src="${pageContext.request.contextPath}/resources/assets/productpics/${product.name}.png" alt='palceholder' style="width:100%"/>
 	 	<h1>${product.name}</h1>
 	 	<p class='price'>$${product.price}</p>
 	 	<p>${product.description}</p>
