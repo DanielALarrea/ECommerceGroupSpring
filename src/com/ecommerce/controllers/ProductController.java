@@ -1,6 +1,5 @@
 package com.ecommerce.controllers;
 
-import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +18,6 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService service;
-	
-	private static final String LOCAL_PROJECT = "D:/GitHub Repos/ECommerceGroupSpring";
-	
-	private static final String UPLOAD_DIRECTORY = LOCAL_PROJECT + "/WebContent/resources/theme1/assets/productpics";
 	
 	private String viewProducts = "products";
 	private String viewProductsAdmin = "manage-products";
@@ -72,21 +67,7 @@ public class ProductController {
 	
 	@PostMapping("/addproduct")
 	public String addProduct(@ModelAttribute("product") Product product) {
-		String path = UPLOAD_DIRECTORY;
-		String fileName = product.getName() + ".png";
-		
-		String imagePath = path + "/" + fileName;
-		
-		product.setImagePath(imagePath);
-		
 		service.addProduct(product);
-		
-		System.out.println(path + " " + fileName);
-		try	{
-			product.getImage().transferTo(new File(imagePath));
-		} catch (Exception e) {
-			System.out.println(e);
-		}
 		return redirectToView;
 	}
 	
@@ -100,21 +81,7 @@ public class ProductController {
 	
 	@PostMapping("/editproduct")
 	public String editProduct(@ModelAttribute("product") Product product) {
-		String path = UPLOAD_DIRECTORY;
-		String fileName = product.getName() + ".png";
-		
-		String imagePath = path + "/" + fileName;
-		
-		try	{
-			product.getImage().transferTo(new File(imagePath));
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		
-		product.setImagePath(imagePath);
-		
 		service.editProduct(product);
-		
 		return redirectToView;
 	}
 	
