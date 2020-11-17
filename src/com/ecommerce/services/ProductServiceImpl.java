@@ -15,9 +15,9 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDao productDao;
 	
-	private static final String LOCAL_PROJECT = "D:/GitHub Repos/ECommerceGroupSpring";
-	
-	private static final String UPLOAD_DIRECTORY = LOCAL_PROJECT + "/WebContent/resources/theme1/assets/productpics";
+//	private static final String LOCAL_PROJECT = "D:/GitHub Repos/ECommerceGroupSpring";
+//	
+//	private static final String UPLOAD_DIRECTORY = LOCAL_PROJECT + "/WebContent/resources/theme1/assets/productpics";
 
 	public List<Product> getAllProducts() {
 		return productDao.getAllProducts();
@@ -40,7 +40,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	public Product uploadProductImage(Product product) {
-		String path = UPLOAD_DIRECTORY;
+		String path = "D:/project3_images";
 		String fileName = product.getName() + ".png";
 		
 		String imagePath = path + "/" + fileName;
