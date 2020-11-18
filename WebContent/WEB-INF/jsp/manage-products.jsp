@@ -17,12 +17,28 @@
 	function addProduct()
 	{
 		let form = document.createElement('form');
-		form.action = 'products/add';
+		form.action = 'add-product';
 		form.method = 'GET';
 		document.body.append(form);
 		form.submit();
 	}
-	
+	function deleteProduct(id)
+	{
+		let form = document.createElement('form');
+		form.action = 'deleteproduct/'+id;
+		form.method = 'DELETE';
+		document.body.append(form);
+		form.submit();
+	}
+	function edit(id)
+	{
+		let form = document.createElement('form');
+		form.action = 'editproduct';
+		form.method = 'GET';
+		form.innerHTML = '<input name="id" value="'+id+'" type="hidden">';
+		document.body.append(form);
+		form.submit();
+	}
 
 </script>
 <style>
@@ -38,10 +54,10 @@
 	
 		<h4 style="text-align: left;color: black;padding-top:5px;padding-bottom: 5px;margin-left:1vw">Something Hub 
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="/ECommerceGroupSpring" >Home</a>
-			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Products</a>
+			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="products" >Products</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >About Us</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Contact Us</a>
-			<a class="flex" style="color: black;" href="" >Admin</a>
+			<a class="flex" style="color: black;" href="admin" >Admin</a>
 			<a class="flex" style="color: black;" href="" >Logout</a>
 			<a class="flex-no-hover">Welcome: </a>
 			
@@ -63,11 +79,11 @@
 	<div class="cards">
 		<c:forEach var="product" items="${list}">
 	 	<div class='card'>
-	 	<img src="${pageContext.request.contextPath}/resources/assets/productpics/product_${product.id}.jpg" alt='palceholder' style="width:100%"/>
+	 	<img class="products" src="${pageContext.request.contextPath}/resources/assets/productpics/${product.name}.png" alt='palceholder' style="width:100%"/>
 	 	<h1>${product.name}</h1>
 	 	<p class='price'>$${product.price}</p>
 	 	<p>${product.description}</p>
-	 	<p><button class="edit" onclick='edit("${product}")'>Edit</button><button class="delete" onclick='delete("${product}")'>delete</button></p>
+	 	<p><button class="edit" onclick='edit("${product.id}")'>Edit</button><button class="delete" onclick='deleteProduct("${product.id}")'>delete</button></p>
 	 	</div>
 	 	<br>
 		 

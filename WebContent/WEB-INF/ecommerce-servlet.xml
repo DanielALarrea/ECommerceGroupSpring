@@ -59,8 +59,7 @@
 		<property name="maxUploadSize" value="10000000" />
 	</bean>
 
-	 <mvc:resources mapping="/resources/**" location="/resources/theme1/"  
-    cache-period="31556926"/>
-
+	 <mvc:resources mapping="/resources/**" location="/resources/theme1/" />
+	<!--  <mvc:resources location="D:/project3_images" mapping="product/**"></mvc:resources> -->
 
 </beans>
