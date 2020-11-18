@@ -7,6 +7,7 @@
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 	<h1>Edit Product</h1>
+
 	<form:form method="POST" action="/ECommerceGroupSpring/editproduct" enctype="multipart/form-data">
 		<table>
 			<tr>

@@ -51,7 +51,7 @@
 
 	
 	<h1 style="margin-top:2vw;text-align: center;">Home</h1>
-	<img class="home-image" alt="" src="thumbnail.PNG">
+	<img class="home-image" alt="" src="menu.jpg">
 <!-- Insert some sort of picture slides -->
 	
 </body>

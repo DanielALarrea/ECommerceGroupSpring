@@ -22,7 +22,7 @@
 	
 		<h4 style="text-align: left;color: black;padding-top:5px;padding-bottom: 5px;margin-left:1vw">Something Hub 
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="/ECommerceGroupSpring" >Home</a>
-			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Products</a>
+			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="products" >Products</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >About Us</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Contact Us</a>
 			<a class="flex" style="color: black;" href="admin" >Admin</a>
@@ -42,7 +42,7 @@
         <hr>
         <br>
         <h2>Welcome: ${cust.userName} | <a href="logout">Logout</a></h2>
-        <h3><a href="admin/products">Product Inventory</a></h3>
+        <h3><a href="admin-products">Product Inventory</a></h3>
         <p>Here you can view and modify product listings.</p>
         <br><br>
         <h3><a href="managecustomers">Customer Management</a></h3>
