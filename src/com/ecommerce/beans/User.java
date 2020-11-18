@@ -11,28 +11,29 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private float userId;
+	private int userId;
 
 	private String firstName;
 	private String lastName;
+	private String fullName;
 	private String userEmail;
 	private String username;
 	private String userPass;
 	private ROLE userRole;
 	private String phone;
-
-	@OneToOne
 	private Address billingAddress;
 	
 	public User() {
 		
 	}
 
-	public User(String firstName, String lastName, String userEmail, String username, String userPass,
+	public User(int userId, String firstName, String lastName, String fullName, String userEmail, String username, String userPass,
 			ROLE userRole, Address billingAddress, String phone) {
 		super();
+		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.fullName = fullName;
 		this.userEmail = userEmail;
 		this.username = username;
 		this.userPass = userPass;
@@ -41,11 +42,11 @@ public class User {
 		this.phone = phone;
 	}
 
-	public float getId() {
+	public int getId() {
 		return userId;
 	}
 
-	public void setId(float id) {
+	public void setId(int id) {
 		this.userId = id;
 	}
 
@@ -111,6 +112,14 @@ public class User {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 }

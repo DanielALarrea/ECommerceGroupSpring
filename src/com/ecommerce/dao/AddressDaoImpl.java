@@ -1,8 +1,13 @@
 package com.ecommerce.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import com.ecommerce.beans.Address;
 
@@ -22,28 +27,39 @@ public class AddressDaoImpl implements AddressDao {
 	}
 	
 	@Override
-	public Address getMostRecentAddress() {
-		String query = "select * from address where address_id=(select MAX(address_id) from address)";
-		return template.queryForObject(query, new BeanPropertyRowMapper<Address>(Address.class));
+	public Address getByStreetAndZipcode(String street, String zipcode) {
+		String query = "select * from address where street = '" + street + "' and zip_code = '" + zipcode + "'";
+		try {
+			return template.queryForObject(query, new RowMapper<Address>(){
+
+				@Override
+				public Address mapRow(ResultSet rs, int rowNum) throws SQLException {
+					return new Address(rs.getInt("address_id"), rs.getString("street"), rs.getString("city"), rs.getString("state"), rs.getString("zip_code"));
+				}
+
+			});
+		} catch(EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 
 	@Override
 	public Address createAddress(Address a) {
 		String query = "insert into address(street, city, state, zip_code) values('"
-				+ a.getStreet() + " " + a.getApartmentNumber() + "', '"
+				+ a.getStreet() + "', '"
 				+ a.getCity() + "', '" + a.getState() + "', '"
 				+ a.getZipCode() + "')";
 		template.update(query);
-		return getMostRecentAddress();
+		return getByStreetAndZipcode(a.getStreet(), a.getZipCode());
 	}
 
 	@Override
 	public Address editAddress(Address a) {
-		String query = "update address set street='"+a.getStreet()+" "+a.getApartmentNumber()
+		String query = "update address set street='"+a.getStreet()
 			+"', city='"+a.getCity()+"', state='"+a.getState()+"', zip_code='"+a.getZipCode()
-			+"' where address_id=" + a.getId();
+			+"' where address_id=" + a.getAddressId();
 		template.update(query);
-		return getAddress((int) a.getId());
+		return getAddress(a.getAddressId());
 	}
 
 	@Override

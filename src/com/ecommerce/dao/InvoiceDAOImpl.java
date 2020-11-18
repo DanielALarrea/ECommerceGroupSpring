@@ -29,7 +29,7 @@ public class InvoiceDAOImpl implements InvoiceDAO {
 	 */
 	@Override
 	public Invoice getById(Integer id) {
-		return conn.queryForObject("select * from invoice where invoice_id = " + id, new Object[]{id},new BeanPropertyRowMapper<Invoice>(Invoice.class));
+		return conn.queryForObject("select * from invoice where invoice_id = ?", new Object[]{id},new BeanPropertyRowMapper<Invoice>(Invoice.class));
 	}
 	/**
 	 * Finds whether an invoice exists by id. 
