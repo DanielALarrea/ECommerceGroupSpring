@@ -42,9 +42,6 @@
 				document.getElementById("login").innerHTML = display;
 			</script>
 			
-			
-			
-			
 		</h4>
 		
 	</div >
@@ -52,7 +49,7 @@
 
 	
 	<h1 style="margin-top:2vw;text-align: center;">Home</h1>
-	<img class="home-image" alt="" src="${pageContext.request.contextPath}/resources/assets/thumbnail.PNG">
+	<img class="home-image" alt="" src="${pageContext.request.contextPath}/resources/assets/menu.jpg">
 <!-- Insert some sort of picture slides -->
 	
 </body>

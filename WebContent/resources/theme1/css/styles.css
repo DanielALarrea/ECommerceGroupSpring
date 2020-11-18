@@ -78,6 +78,8 @@ div.header{
 
 }
 .card button.edit{
+	border-radius:3px;
+	border: 2px yellow;
 	background-color:yellow;
 	width: 40%;
 	padding-right:12px; 
@@ -85,6 +87,8 @@ div.header{
 	margin-right:5px;
 }
 .card button.delete{
+	border-radius:3px;
+	border: 2px red;
 	background-color:red;
 	width: 40%;
 	padding-right:12px; 
@@ -93,8 +97,31 @@ div.header{
 	
 }
 
+
+input.edit{
+	border-radius:3px;
+	border: 2px lightblue;
+	outline:0;
+	padding: 12px;
+	color:black;
+	background-color: lightblue;
+	
+	text-align: center;
+	cursor: pointer;
+	width: 50%;
+	font-size: 18px;
+	transition: text-shadow .3s;
+}
+
+input.edit:hover{
+	opacity:1;
+		box-shadow: 0 0 11px rgba(33,33,33,.7); 
+	font-weight: bold;
+}
+
 .card button {
-	border:none;
+	border-radius:3px;
+	border: 2px lightblue;
 	outline:0;
 	padding: 12px;
 	color:black;
@@ -157,16 +184,25 @@ padding-right:200px;
 }
 
 .home-image{
-	width: 80vw;
-	height:30vw;
+	border-radius:3px;
+	width: 63vw;
+	height:40vw; 
 	display:block;
 	margin-left: auto;
 	margin-right: auto;
 	box-shadow: 0 0 11px black;
 
 }
+
+img.products{
+	max-height: 300;
+	max-width: 300;
+}
 .admin-home{
-    padding-left:5vw;margin-top:2vw;text-align: left;margin-right: 5vw;
+    padding-left:5vw;
+    margin-top:2vw;
+    text-align: left;
+    margin-right: 5vw;
 }
 
 .add-product{

@@ -9,36 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" >
 <script>
-	/* class Item{
-		itemName ='';
-		itemPrice =0;
-		id = 0;
-		constructor(id,name,price)
-		{
-			this.id = id;
-			this.itemName = name;
-			this.itemPrice = price;
-		}
-		
-	}
-	//items = list;
-	var cart = [];
-	var items = [];
-	items.push(new Item(1,"Gnome",20));
-	items.push(new Item(2,"notGnome",33));
-	items.push(new Item(3,"HiGnome",12));
-	items.push(new Item(4,"Gnome",20)); */
-	// items.push(new Item("notGnome",33));
-	// items.push(new Item("HiGnome",12));
-	// items.push(new Item("Gnome",20));
-	// items.push(new Item("notGnome",33));
-	// items.push(new Item("HiGnome",12));
-	// items.push(new Item("Gnome",20));
-	// items.push(new Item("notGnome",33));
-	// items.push(new Item("HiGnome",12));
-	// items.push(new Item("Gnome",20));
-	// items.push(new Item("notGnome",33));
-	// items.push(new Item("HiGnome",12));
+	
 	function addToCart(id){
 		console.log(id);
 		let form = document.createElement('form');
@@ -66,7 +37,7 @@
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="products" >Products</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >About Us</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Contact Us</a>
-			<a class="flex" style="color: black;" href="" >Admin</a>
+			<a class="flex" style="color: black;" href="admin" >Admin</a>
 			<a class="flex" style="color: black;" href="" >Logout</a>
 			<a class="flex-no-hover">Welcome: </a>
 			
@@ -86,36 +57,10 @@
 	</form>
 	<div class="cards">
 		
-	<!-- <div class="card">
-		<img src="thumbnail.PNG" alt="palceholder" style="width:100%">
-		<h1>TestCard</h1>
-		<p class="price">$price</p>
-		<p>Description</p>
-		<p><button>Add to Cart</button></p>
-	</div> -->
-	<!--
-	<script>
-		var display = "<div class='cards' style='display:flex'>";
-			
-		for(i = 0; i < items.length; i++)
-		{
-			display += "<div class='card'>";
-			// display +="<img src="+"'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcEAAAFICAYAAAAoBEX4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATASURBVHhe7dVBAQAwCAChzf6dNcjxIANv/iwAFEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIEuCAGRJEIAsCQKQJUEAsiQIQJYEAciSIABZEgQgS4IAZEkQgCwJApAlQQCyJAhAlgQByJIgAFkSBCBLggBkSRCALAkCkCVBALIkCECWBAHIkiAAWRIEIGr2AMBRZ1m0dOESAAAAAElFTkSuQmCC'"+" alt='palceholder' style='width:100%'>";
-			display +="<img src="+"'thumbnail.PNG'"+" alt='palceholder' style='width:100%'>";
-			display+="<h1>"+items[i].itemName+"</h1>";
-			display+="<p class='price'>$"+items[i].itemPrice+"</p>";
-			display+="<p>Description</p>";
-			display+="<p><button onclick='addToCart("+items[i].id+")'>Add to Cart</button></p></div><br>";
-			console.log(items[i]);
-			
-		}
-		display+="</div>"
-		document.getElementById("cards").innerHTML = display;
-	</script>
-	 -->
+	
 	 <c:forEach var="product" items="${list}">
 	 	<div class='card'>
-	 	<img src="${pageContext.request.contextPath}/resources/assets/productpics/${product.name}.png" alt='palceholder' style="width:100%"/>
+	 	<img class="products" src="${pageContext.request.contextPath}/resources/assets/productpics/${product.name}.png" alt='palceholder' style="width:100%"/>
 	 	<h1>${product.name}</h1>
 	 	<p class='price'>$${product.price}</p>
 	 	<p>${product.description}</p>

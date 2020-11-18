@@ -3,6 +3,8 @@ package com.ecommerce.services;
 import java.io.File;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,8 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
 	private ProductDao productDao;
-	
+	@Autowired
+	private ServletContext servletContext;
 //	private static final String LOCAL_PROJECT = "D:/GitHub Repos/ECommerceGroupSpring";
 //	
 //	private static final String UPLOAD_DIRECTORY = LOCAL_PROJECT + "/WebContent/resources/theme1/assets/productpics";
@@ -40,7 +43,10 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	public Product uploadProductImage(Product product) {
-		String path = "D:/project3_images";
+		//String path = "D:/project3_images";
+		String path = servletContext.getRealPath("/")+"WebContent\\resources\\theme1\\assets\\productpics";
+
+		path = path.replace(".metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\", "");
 		String fileName = product.getName() + ".png";
 		
 		String imagePath = path + "/" + fileName;

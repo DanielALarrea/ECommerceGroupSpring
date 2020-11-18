@@ -23,10 +23,10 @@
 	
 		<h4 style="text-align: left;color: black;padding-top:5px;padding-bottom: 5px;margin-left:1vw">Something Hub 
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="/ECommerceGroupSpring" >Home</a>
-			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Products</a>
+			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="products" >Products</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >About Us</a>
 			<a class="boxt" style="font-size: 17px;margin-left:1vw;color: black" href="" >Contact Us</a>
-			<a class="flex" style="color: black;" href="" >Admin</a>
+			<a class="flex" style="color: black;" href="admin" >Admin</a>
 			<a class="flex" style="color: black;" href="" >Logout</a>
 			<a class="flex-no-hover">Welcome: </a>
 			
@@ -40,7 +40,7 @@
 	<h1 style="margin-top:2vw;text-align: center;">Add a Product</h1>
 	<div class="login" >
 		
-		<form:form method="post" action="../../addproduct">
+		<form:form method="post" action="addproduct" enctype="multipart/form-data"  style="padding-top:20px">
 		<table>
 			<tr>
 				<td>Name :</td>
@@ -56,8 +56,8 @@
 				<td><form:input path="price" /></td>
 			</tr>
 			<tr>
-				<td>Image Path :</td>
-				<td><form:input path="imagePath" /></td>
+				<td>Image:</td>
+				<td><input type="file" name="image"><br /></td>
 			</tr>
 			<tr>
 				<td>Stock :</td>
