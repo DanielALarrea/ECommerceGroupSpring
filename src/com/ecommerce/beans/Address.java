@@ -7,7 +7,7 @@ public class Address {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private float addressId;
+	private int addressId;
 
 	private String street;
 	private int apartmentNumber;
@@ -19,16 +19,16 @@ public class Address {
 		
 	}
 
-	public Address(String street, String city, String state, String zipCode, int apartmentNumber) {
+	public Address(int addressId, String street, String city, String state, String zipCode) {
 		super();
+		this.addressId = addressId;
 		this.street = street;
-		this.apartmentNumber = apartmentNumber;
 		this.city = city;
 		this.state = state;
 		this.zipCode = zipCode;
 	}
 
-	public Address(float addressId, String street, int apartmentNumber, String city, String state, String zipCode) {
+	public Address(int addressId, String street, int apartmentNumber, String city, String state, String zipCode) {
 		super();
 		this.addressId = addressId;
 		this.street = street;
@@ -38,11 +38,11 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 
-	public float getId() {
+	public int getAddressId() {
 		return addressId;
 	}
 
-	public void setId(float id) {
+	public void setAddressId(int id) {
 		this.addressId = id;
 	}
 

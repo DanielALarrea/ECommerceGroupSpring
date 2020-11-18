@@ -40,8 +40,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean updateUser(User user) {
-		return userDB.editUser(user);
+	public boolean updateUser(User user, String attribute) {
+		return userDB.editUser(user, attribute);
 	}
 
 	@Override
@@ -60,8 +60,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Address editAddress(Address address) {
-		return addressDB.editAddress(address);
+	public Address getAddress(String street, String zip) {
+		return addressDB.getByStreetAndZipcode(street, zip);
+	}
+	
+	@Override
+	public Address addAddress(Address address) {
+		return addressDB.createAddress(address);
 	}
 
 }

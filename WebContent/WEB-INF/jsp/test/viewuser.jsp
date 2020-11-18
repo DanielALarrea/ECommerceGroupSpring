@@ -35,7 +35,7 @@
 				<td>${user.userEmail}</td>
 				<td>${user.phone}</td>
 				<td>${user.userRole}</td>
-				<td>${user.billingAddress.id}</td>
+				<td>${user.billingAddress.addressId}</td>
 				<td>${user.billingAddress.street}</td>
 				<td>${user.billingAddress.city}</td>
 				<td>${user.billingAddress.state}</td>

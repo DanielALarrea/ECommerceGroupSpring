@@ -31,8 +31,8 @@ public class UserDaoImpl implements UserDao {
 			@Override
 			public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Address billingAddress = addressDB.getAddress(rs.getInt("address_id"));
-				billingAddress.setId(rs.getInt("address_id"));
-				User u = new User(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"),
+				billingAddress.setAddressId(rs.getInt("address_id"));
+				User u = new User(rs.getInt("customer_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("full_name"), rs.getString("email"),
 						rs.getString("username"), rs.getString("password"), User.ROLE.valueOf(rs.getNString("role").toUpperCase()),
 						billingAddress, rs.getString("phone_number"));
 				u.setId(rs.getInt("customer_id"));
@@ -60,24 +60,44 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User addUser(User u) {
-		int addressId = (int) addressDB.createAddress(u.getBillingAddress()).getId();
-		
+	public User addUser(User u) {		
 		String query = "insert into customer(username, password, first_name, last_name, email, phone_number, address_id, role) values('"
 				+ u.getUsername() + "', '" + u.getUserPass() + "', '" + u.getFirstName() + "', '" + u.getLastName() + "', '" + u.getUserEmail() + "', '"
-				+ u.getPhone() + "', " + addressId + ", 'customer')";
+				+ u.getPhone() + "', " + u.getBillingAddress().getAddressId() + ", '" 
+				+ u.getUserRole().toString().toLowerCase() + "')";
 		template.update(query);
 		return getUser(u.getUserEmail());
 	}
 
 	@Override
-	public boolean editUser(User u) {
-		int addressId = (int) addressDB.editAddress(u.getBillingAddress()).getId();
+	public boolean editUser(User u, String column) {
+		String query = "update customer set " + column + " = ";
 		
-		String query = "update customer set username='" + u.getUsername() + "', password='" + u.getUserPass() + "', first_name='" + u.getFirstName()
-			+ "', last_name='" + u.getLastName()+"', email='" + u.getUserEmail() + "', phone_number='" + u.getPhone()
-			+ "', address_id=" + addressId + ", role='" + u.getUserRole().toString()
-			+ " where user_id='" + u.getId();
+		switch(column) {
+			case "username":
+				query += "'" + u.getUsername() + "'";
+			break;
+			case "password":
+				query += "'" + u.getUserPass() + "'";
+			break;
+			case "first_name":
+				query += "'" + u.getFirstName() + "'";
+			break;
+			case "last_name":
+				query += "'" + u.getLastName() + "'";
+			break;
+			case "email":
+				query += "'" + u.getUserEmail() + "'";
+			break;
+			case "phone_number":
+				query += "'" + u.getPhone() + "'";
+			break;
+			case "address_id":
+				query += u.getBillingAddress().getAddressId();
+			break;
+		}
+		
+		query += " where customer_id = " + u.getId();
 		return template.update(query) != 0;
 	}
 

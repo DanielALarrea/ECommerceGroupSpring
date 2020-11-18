@@ -40,7 +40,7 @@
 			
 			<tr>
 				<td>Address</td>
-				<td><form:hidden path="billingAddress.id" /></td>
+				<td><form:hidden path="billingAddress.addressId" /></td>
 			</tr>
 			<tr>
 				<td>Street :</td>

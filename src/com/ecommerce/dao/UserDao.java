@@ -11,6 +11,6 @@ public interface UserDao {
 	public User getUser(String email);
 	public boolean userExists(int id);
 	public User addUser(User user);
-	public boolean editUser(User user);
+	public boolean editUser(User user, String column);
 	public boolean deleteUser(int id);
 }
